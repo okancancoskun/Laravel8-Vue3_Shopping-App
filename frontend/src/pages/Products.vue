@@ -8,6 +8,9 @@
     :style="{ height: '800px' }"
   >
     <div class="col col-md-10">
+      <div v-if="productsState.data.data.length === 0" class="row justify-center">
+        <h3>Products Doest Not Exist</h3>
+      </div>
       <div class="row justify-center">
         <div
           v-if="
@@ -25,7 +28,7 @@
         </div>
       </div>
     </div>
-    <div class="col col-md-2">
+    <div v-if="productsState.data.data.length > 0" class="col col-md-2">
       <div class="flex flex-center">
         <q-pagination
           v-model="productsState.currentPage"

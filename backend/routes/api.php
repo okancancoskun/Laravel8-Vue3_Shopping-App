@@ -46,11 +46,11 @@ Route::prefix('category')->group(function () {
     Route::get('', [CategoryController::class, 'findAll']);
     Route::post('create', [CategoryController::class, 'create'])->middleware('auth:api');
 });
-
-Route::group(['prefix' => 'role', 'middleware' => ['auth:api']], function () {
+Route::prefix('role')->group(function () {
     Route::get('', [RoleController::class, 'findAll']);
-    Route::post('role/create', [RoleController::class, 'create']);
+    Route::post('create', [RoleController::class, 'create']);
 });
+
 Route::prefix('product')->group(function () {
     Route::post('create', [ProductController::class, 'create'])->middleware('auth:api')/* ->middleware('role:admin') */;
     Route::get('', [ProductController::class, 'findAll']);

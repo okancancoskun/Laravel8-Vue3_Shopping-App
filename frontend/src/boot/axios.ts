@@ -15,7 +15,7 @@ declare module "@vue/runtime-core" {
 // for each client)
 const storageToken: string | null = localStorage.getItem("token");
 const api = axios.create({
-  baseURL: "http://localhost:8000/api/",
+  baseURL: "https://laravel-commerce-backend.herokuapp.com/api/",
   headers: {
     Authorization: storageToken ? `Bearer ${storageToken}` : "",
   },
